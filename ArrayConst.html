@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constant Array Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>Constant Array Example</h2>
+
+    <h3>Original Colors:</h3>
+    <p id="originalColors"></p>
+
+    <h3>Attempting to Modify the Array:</h3>
+    <button onclick="modifyArray()">Modify Array</button>
+    <p id="modificationResult"></p>
+
+    <h3>Attempting to Reassign the Array:</h3>
+    <button onclick="reassignArray()">Reassign Array</button>
+    <p id="reassignmentResult"></p>
+
+    <script>
+        
+        const colors = ["Red", "Green", "Blue","Orange"];
+
+        document.getElementById('originalColors').innerText = `Colors: ${colors.join(', ')}`;
+
+        function modifyArray() {
+            colors.push("Yellow"); // Modify the array by adding a new color
+            document.getElementById('modificationResult').innerText = `Modified Colors: ${colors.join(', ')}`;
+        }
+
+        function reassignArray() {
+            try {
+                colors = ["Purple", "Orange"]; 
+            } catch (error) {
+                document.getElementById('reassignmentResult').innerText = `Error: ${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html>

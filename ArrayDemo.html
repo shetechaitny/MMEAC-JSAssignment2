@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Fruits List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        input {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>My Favorite Fruits</h2>
+
+    <input type="text" id="fruitInput" placeholder="Enter a fruit">
+    <button onclick="addFruit()">Add Fruit</button>
+    <button onclick="removeFruit()">Remove Fruit</button>
+
+    <h3>Fruit List:</h3>
+    <ul id="fruitList"></ul>
+
+    <script>
+        let favoriteFruits = ["Apple", "Banana", "Mango"];
+
+       
+        function displayFruits() {
+            const fruitList = document.getElementById('fruitList');
+            fruitList.innerHTML = '';  // Clear existing list
+
+            favoriteFruits.forEach((fruit) => {
+                const li = document.createElement('li');
+                li.textContent = fruit;
+                fruitList.appendChild(li);
+            });
+        }
+
+        
+        function addFruit() {
+            const fruitInput = document.getElementById('fruitInput').value.trim();
+            if (fruitInput) {
+                favoriteFruits.push(fruitInput);  
+                displayFruits();  
+                document.getElementById('fruitInput').value = '';  
+            } else {
+                alert("Please enter a fruit!");
+            }
+        }
+
+       
+        function removeFruit() {
+            const fruitInput = document.getElementById('fruitInput').value.trim();
+            const index = favoriteFruits.indexOf(fruitInput);
+
+            if (index !== -1) {
+                favoriteFruits.splice(index, 1);  
+                displayFruits();  
+                document.getElementById('fruitInput').value = '';  
+            } else {
+                alert("Fruit not found in the list!");
+            }
+        }
+        displayFruits();
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Strings in Array</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>Search Strings in Array</h2>
+
+    <input type="text" id="searchTerm" placeholder="Enter search term">
+    <button onclick="searchStrings()">Search</button>
+
+    <h3>Results:</h3>
+    <p id="results"></p>
+
+    <script>
+        const stringArray = [
+            "Apple",
+            "Banana",
+            "Cherry",
+            "Date",
+            "Elderberry",
+            "Fig",
+            "Grape",
+            "Honeydew"
+        ];
+        function searchStrings() {
+            const term = document.getElementById('searchTerm').value.toLowerCase();
+            const results = stringArray.filter(str => str.toLowerCase().includes(term));
+
+            document.getElementById('results').innerText = results.length > 0 
+                ? `Found: ${results.join(', ')}`
+                : 'No matches found.';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiply Numbers by 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>Multiply Numbers by 2</h2>
+
+    <h3>Results:</h3>
+    <div id="results"></div>
+
+    <script>
+    const numbers = [1, 2, 3, 4, 5];
+
+        const resultsContainer = document.getElementById('results');
+        numbers.forEach(number => {
+            const multiplied = number * 2;
+            const p = document.createElement('p');
+            p.textContent = `${number} multiplied by 2 is ${multiplied}`;
+            resultsContainer.appendChild(p);
+        });
+    </script>
+</body>
+</html>

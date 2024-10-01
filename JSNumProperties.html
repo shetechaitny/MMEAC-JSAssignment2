@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Number Properties</title>
+</head>
+<body>
+    <h2>Exploring JavaScript Number Properties</h2>
+
+    <button onclick="showNumberProperties()">Show Number Properties</button>
+
+    <h3>Results:</h3>
+    <p id="maxValueResult"></p>
+    <p id="minValueResult"></p>
+    <p id="nanResult"></p>
+
+    <script>
+        
+        function showNumberProperties() {
+           
+            const maxValue = Number.MAX_VALUE;
+            document.getElementById('maxValueResult').innerText = `Number.MAX_VALUE: ${maxValue}`;
+
+            const minValue = Number.MIN_VALUE;
+            document.getElementById('minValueResult').innerText = `Number.MIN_VALUE: ${minValue}`;
+
+    
+            const notANumber = Number.NaN;
+            const invalidCalculation = 0 / 0;  
+            const comparison = isNaN(invalidCalculation);  
+
+            document.getElementById('nanResult').innerText = 
+                `Number.NaN: ${notANumber}, Example Invalid Calculation (0/0): ${invalidCalculation}, Is NaN: ${comparison}`;
+        }
+    </script>
+</body>
+</html>

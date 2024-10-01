@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grades Sorter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>Student Grades</h2>
+
+    <h3>Sorted Student List:</h3>
+    <ul id="studentList"></ul>
+
+    <script>
+        const students = [
+            { name: "Kaustubh", grade: 85 },
+            { name: "Chaitany", grade: 92 },
+            { name: "Mahesh", grade: 78 },
+            { name: "Om", grade: 90 },
+            { name: "Omkar", grade: 88 }
+        ];
+
+        function sortStudentsByGrade() {
+            return students.sort((a, b) => a.grade - b.grade);
+        }
+        function displaySortedStudents() {
+            const sortedStudents = sortStudentsByGrade();
+            const studentList = document.getElementById('studentList');
+
+            sortedStudents.forEach(student => {
+                const li = document.createElement('li');
+                li.textContent = `${student.name}: ${student.grade}`;
+                studentList.appendChild(li);
+            });
+        }
+
+        displaySortedStudents();
+    </script>
+</body>
+</html>

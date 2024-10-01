@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee Constructor Function</title>
+</head>
+<body>
+  <h1>Employee Information</h1>
+  <p id="employee-info"></p>
+
+  <script>
+    function Employee(name, position, salary) {
+      this.name = name;
+      this.position = position;
+      this.salary = salary;
+      this.displayInfo = function() {
+        return `Name: ${this.name}<br>Position: ${this.position}<br>Salary: ${this.salary}`;
+      };
+    }
+    const employees = [
+      new Employee("Kaustubh Kolhe", "Software Developer", 400000),
+      new Employee("Kalyani Kolhe", "Data Scientist", 600000)
+    ];
+    const paragraph = document.getElementById("employee-info");
+    let text = "";
+    for (let employee of employees) {
+      text += employee.displayInfo() + "<br><br>";
+    }
+    paragraph.innerHTML = text;
+  </script>
+</body>
+</html>

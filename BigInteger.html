@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BigInt Factorial Performance</title>
+</head>
+<body>
+    <h2>Factorial Calculation with BigInt vs Regular Numbers</h2>
+
+    <input type="number" id="numberInput" placeholder="Enter a large number" min="0">
+    <button onclick="calculateFactorial()">Calculate Factorials</button>
+
+    <h3>Results:</h3>
+    <p id="bigIntResult"></p>
+    <p id="regularResult"></p>
+    <p id="performance"></p>
+
+    <script>
+       
+        function factorialBigInt(n) {
+            let result = BigInt(1);
+            for (let i = BigInt(2); i <= n; i++) {
+                result *= i;
+            }
+            return result;
+        }
+
+        function factorialRegular(n) {
+            let result = 1;
+            for (let i = 2; i <= n; i++) {
+                result *= i;
+            }
+            return result;
+        }
+
+        
+        function calculateFactorial() {
+            const input = parseInt(document.getElementById('numberInput').value);
+
+            if (isNaN(input) || input < 0) {
+                alert('Please enter a valid positive integer.');
+                return;
+            }
+
+      
+            const bigIntStart = performance.now();
+            const bigIntFactorial = factorialBigInt(BigInt(input));
+            const bigIntEnd = performance.now();
+
+          
+            const regularStart = performance.now();
+            let regularFactorial;
+            try {
+                regularFactorial = factorialRegular(input);
+            } catch (error) {
+                regularFactorial = "Too large to compute with regular numbers";
+            }
+            const regularEnd = performance.now();
+
+     
+            document.getElementById('bigIntResult').innerText = `BigInt Factorial: ${bigIntFactorial}`;
+            document.getElementById('regularResult').innerText = `Regular Number Factorial: ${regularFactorial}`;
+            
+           
+            document.getElementById('performance').innerText = `BigInt Time: ${(bigIntEnd - bigIntStart).toFixed(2)} ms, Regular Time: ${(regularEnd - regularStart).toFixed(2)} ms`;
+        }
+    </script>
+</body>
+</html>

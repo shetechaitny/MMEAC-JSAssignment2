@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rounding Numbers</title>
+</head>
+<body>
+    <h2>Rounding Numbers with Math Methods</h2>
+
+    <input type="number" id="decimalInput" placeholder="Enter a decimal number" step="any">
+    <button onclick="roundNumber()">Round Number</button>
+
+    <h3>Results:</h3>
+    <p id="roundedResult"></p>
+    <p id="ceilResult"></p>
+    <p id="floorResult"></p>
+
+    <script>
+        
+        function roundNumber() {
+            const input = parseFloat(document.getElementById('decimalInput').value);
+
+            if (isNaN(input)) {
+                alert('Please enter a valid decimal number.');
+                return;
+            }
+
+          
+            const rounded = Math.round(input);
+
+         
+            const ceiled = Math.ceil(input);
+
+            
+            const floored = Math.floor(input);
+
+            document.getElementById('roundedResult').innerText = `Rounded (Math.round): ${rounded}`;
+            document.getElementById('ceilResult').innerText = `Ceiled (Math.ceil): ${ceiled}`;
+            document.getElementById('floorResult').innerText = `Floored (Math.floor): ${floored}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Substring Checker</title>
+</head>
+<body>
+    <h2>Check Substring in a String</h2>
+
+    <input type="text" id="mainString" placeholder="Enter main string">
+    <input type="text" id="substring" placeholder="Enter substring">
+    <button onclick="checkSubstring()">Check</button>
+
+    <p id="result"></p>
+
+    <script>
+        function checkSubstring() {
+            const mainString = document.getElementById('mainString').value;
+            const substring = document.getElementById('substring').value;
+
+            const result = mainString.includes(substring);
+            document.getElementById('result').innerText = result ? "True:Substring found" : "False:Substring not found!";
+        }
+    </script>
+</body>
+</html>

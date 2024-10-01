@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details</title>
+    <script>
+        
+        function displayBookDetails() {
+     
+            const book = {
+                title: "Rich Dad Poor Dad",
+                author: "	Robert Kiyosaki and Sharon L. Lechter",
+                yearPublished: 2000,
+                genre: "Personal finance",
+
+                getDetails: function () {
+                    return `Title: ${this.title}\nAuthor: ${this.author}\nYear Published: ${this.yearPublished}\nGenre: ${this.genre}`;
+                }
+            };
+          
+            document.getElementById("bookDetails").innerText = book.getDetails();
+        }
+    </script>
+</head>
+<body>
+    <h1>Book Information</h1>
+    <button onclick="displayBookDetails()">Show Book Details</button>
+    <p id="bookDetails"></p>
+</body>
+</html>

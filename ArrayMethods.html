@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Transformation with JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>Array Transformation with .map(), .filter(), and .reduce()</h2>
+
+    <h3>Original Array:</h3>
+    <p id="originalArray"></p>
+
+    <h3>Transformed Results:</h3>
+    <p id="mappedResult"></p>
+    <p id="filteredResult"></p>
+    <p id="reducedResult"></p>
+
+    <script>
+        const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        document.getElementById('originalArray').innerText = `Original Array: ${numbers.join(', ')}`;
+
+        const mappedNumbers = numbers.map(num => num * 2);
+        document.getElementById('mappedResult').innerText = `Mapped (Doubled): ${mappedNumbers.join(', ')}`;
+
+        const filteredNumbers = numbers.filter(num => num % 2 === 0);
+        document.getElementById('filteredResult').innerText = `Filtered (Even Numbers): ${filteredNumbers.join(', ')}`;
+
+        const reducedResult = numbers.reduce((accumulator, num) => accumulator + num, 0);
+        document.getElementById('reducedResult').innerText = `Reduced (Sum): ${reducedResult}`;
+    </script>
+</body>
+</html>
